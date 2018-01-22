@@ -66,6 +66,7 @@ module.exports = function (RED) {
             var dataset = bigquery.dataset(node.dataset),
                 table = dataset.table(node.table),
                 insert_data = JSON.parse(msg.payload);
+            node.error("Inputting data!");
 
             table.insert(insert_data, function (err, apiResponse) {
                 node.error("gcp.error.general-response: " + JSON.stringify(apiResponse));
