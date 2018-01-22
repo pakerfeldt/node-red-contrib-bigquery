@@ -68,9 +68,9 @@ module.exports = function (RED) {
                 insert_data = JSON.parse(msg.payload);
 
             table.insert(insert_data, function (err, apiResponse) {
+                node.error("gcp.error.general-response: " + JSON.stringify(apiResponse));
                 if (err) {
                     node.error("gcp.error.general-error: " + JSON.stringify(err));
-                    node.error("gcp.error.general-response: " + JSON.stringify(apiResponse));
                     return;
                 }
             });
