@@ -70,6 +70,7 @@ module.exports = function (RED) {
             table.insert(insert_data, function (err, apiResponse) {
                 if (err) {
                     node.error("gcp.error.general-error: " + JSON.stringify(err));
+                    node.error("gcp.error.general-response: " + JSON.stringify(apiResponse));
                     return;
                 }
             });
